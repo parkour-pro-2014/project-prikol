@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "fajK+1xTpoQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\wwrwsx\\Documents\\sshbrute\\main\\main.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\wwrwsx\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
+    "C:\\Users\\wwrwsx\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\wwrwsx\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.3\\microsoft.extensions.logging.abstractions.8.0.3.nupkg.sha512",
+    "C:\\Users\\wwrwsx\\.nuget\\packages\\ssh.net\\2025.1.0\\ssh.net.2025.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
