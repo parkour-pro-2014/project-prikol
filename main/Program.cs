@@ -42,7 +42,7 @@ class Program
                     if (client.IsConnected)
                     {
                         Console.WriteLine("\nПодключение успешно!");
-                        Console.WriteLine($"\nIP адрес:{host}");
+                        Console.WriteLine($"\nIP адрес или домен:{host}");
                         Console.WriteLine($"\nИмя пользователя:{username}");
                         Console.WriteLine($"\nПароль:{password}");
                         client.Disconnect();
