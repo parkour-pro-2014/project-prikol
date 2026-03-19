@@ -7,6 +7,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Threading;
+using System.ComponentModel.Design;
+using System.Security.Cryptography.X509Certificates;
+using System.IO.Pipelines;
 
 class Program
 {
@@ -40,7 +43,7 @@ class Program
 
         foreach (string password in dictionary)
         {
-
+            Console.WriteLine(password);
             if (found)
                 break;
             
@@ -54,7 +57,7 @@ class Program
                 
                 try
                 {
-                    Console.WriteLine(password);
+                    
                     if (found)
                         return;
                     
@@ -65,12 +68,12 @@ class Program
                         {
                             found = true;                            
                             client.Disconnect();
-                            Thread.Sleep(500);
+                            Thread.Sleep(1000);
                             Console.BackgroundColor = ConsoleColor.Green;
                             Console.WriteLine("\nПодключение успешно!");
                             Console.WriteLine($"\nIP адрес или домен:{host}");
                             Console.WriteLine($"\nИмя пользователя:{username}");
-                            Console.WriteLine($"\nПароль:{password}");        
+                            Console.WriteLine($"\nПароль:{password}");
                         }
                         else
                         {
@@ -80,7 +83,7 @@ class Program
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Ошибка: " + ex.Message);
+                    // Console.WriteLine("Ошибка: " + ex.Message);
                 }
                 finally
                 {
@@ -93,8 +96,45 @@ class Program
         await Task.WhenAll(tasks);
 
         Console.BackgroundColor = ConsoleColor.Blue;
-        Console.WriteLine("\nНажмите любую клавишу для выхода...");
-        Console.ReadKey();
+        while (true) // Бесконечный цикл, пока не будет выполнен выход или переход
+        {
+            Console.WriteLine("\nНажмите 1 чтобы вернуться или 2 для выхода.");
+            
+            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+
+            if (keyInfo.Key == ConsoleKey.D1 || keyInfo.Key == ConsoleKey.NumPad1)
+            {
+                Console.ResetColor();
+                Console.Clear();
+                Main();
+                break;
+            }
+            else if (keyInfo.Key == ConsoleKey.D2 || keyInfo.Key == ConsoleKey.NumPad2)
+            {
+                Console.ResetColor();
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Magenta;
+                Console.Write("\nВыход");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(500);
+                Console.Write(".");
+                Thread.Sleep(1000);
+                Console.ResetColor();
+                Console.Clear();
+                Environment.Exit(0);
+            }
+            else
+            {
+                Console.ResetColor();
+                Console.Clear();
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("нажата неверная клавиша! Попробуйте еще раз.");
+            }
+        }
         Console.BackgroundColor = ConsoleColor.Black;
     }
 }   
