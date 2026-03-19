@@ -18,3 +18,4 @@ C:\Users\wwrwsx\Documents\sshbrute\main\bin\Debug\net10.0\Microsoft.Extensions.D
 C:\Users\wwrwsx\Documents\sshbrute\main\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\wwrwsx\Documents\sshbrute\main\bin\Debug\net10.0\Renci.SshNet.dll
 C:\Users\wwrwsx\Documents\sshbrute\main\obj\Debug\net10.0\main.csproj.Up2Date
+C:\Users\wwrwsx\Documents\sshbrute\main\obj\Debug\net10.0\main.sourcelink.json

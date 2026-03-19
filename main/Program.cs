@@ -19,10 +19,7 @@ class Program
         }
 
         
-        List<string> dictionary = File.ReadAllLines(filePath)
-                                      .Select(w => w.Trim())
-                                      .Where(w => !string.IsNullOrWhiteSpace(w))
-                                      .ToList();
+        List<string> dictionary = File.ReadAllLines(filePath).ToList();
 
         Console.Write("Введите IP адрес: ");
         string host = Console.ReadLine();
