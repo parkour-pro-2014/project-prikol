@@ -21,7 +21,7 @@ class Program
         
         List<string> dictionary = File.ReadAllLines(filePath).ToList();
 
-        Console.Write("Введите IP адрес: ");
+        Console.Write("Введите IP адрес или домен: ");
         string host = Console.ReadLine();
 
         Console.Write("Введите имя пользователя: ");
