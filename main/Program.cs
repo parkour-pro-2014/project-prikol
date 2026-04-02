@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Renci.SshNet;
 using Renci.SshNet.Common;
 using System.Collections.Generic;
@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.ComponentModel.Design;
 
 class Program
 {
@@ -18,7 +19,6 @@ class Program
 
     static async Task Main()
     {
-        Console.CursorVisible = false;
 
         while (true)
         {
@@ -40,8 +40,8 @@ class Program
         }
     }
 
-    // ================= УНИВЕРСАЛЬНОЕ МЕНЮ =================
-    static int ArrowMenu(string title, string[] options)
+    // меню
+    static int ShowMenu()
     {
         int selected = 0;
 
@@ -50,44 +50,39 @@ class Program
             Console.Clear();
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(title + "\n");
+            Console.WriteLine("===== SSH BRUTE=====\n");
             Console.ResetColor();
 
-            for (int i = 0; i < options.Length; i++)
-            {
-                if (i == selected)
-                {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"> {options[i]}");
-                }
-                else
-                {
-                    Console.WriteLine($"  {options[i]}");
-                }
-                Console.ResetColor();
-            }
+            Console.WriteLine($"1. Старт");
+            Console.WriteLine($"2. Настройки");
+            Console.WriteLine("3. Выход");
 
             var key = Console.ReadKey(true).Key;
 
-            if (key == ConsoleKey.UpArrow) selected--;
-            if (key == ConsoleKey.DownArrow) selected++;
-
-            if (selected < 0) selected = options.Length - 1;
-            if (selected >= options.Length) selected = 0;
-
-            if (key == ConsoleKey.Enter)
+            if (key == ConsoleKey.D1)
+            {
+                selected = 0;
                 return selected;
+            }
+            else if (key == ConsoleKey.D2)
+            {
+                selected = 1;
+                return selected;
+            }
+            else if (key == ConsoleKey.D3)
+            {
+                selected = 2;
+                return selected;
+            }
+            else
+            {
+                Console.WriteLine("Невозможный выбор");
+                Main();       
+            }
         }
     }
 
-    // ================= MENU =================
-    static int ShowMenu()
-    {
-        return ArrowMenu("===== SSH BRUTE TOOL =====", 
-            new string[] { "Старт", "Настройки", "Выход" });
-    }
-
-    // ================= BRUTE =================
+    // брутфорс
     static async Task RunBrute()
     {
         Console.Clear();
@@ -161,29 +156,9 @@ class Program
                         }
                     }
                 }
-                catch (SshAuthenticationException)
-                {
-                    // неверный пароль — игнор
-                }
                 catch (Exception ex)
                 {
-                    lock (consoleLock)
-                    {
-                        stopAll = true;
-
-                        Console.SetCursorPosition(0, progressLine + 2);
-
-                        WriteColored("\n=== ОШИБКА ===", ConsoleColor.Yellow);
-                        Console.WriteLine(ex.Message);
-
-                        int choice = ArrowMenu("Подбор остановлен",
-                            new string[] { "Игнорировать и продолжить", "В меню" });
-
-                        if (choice == 0)
-                        {
-                            stopAll = false;
-                        }
-                    }
+                    // Console.WriteLine("Ошибка: " + ex.Message);
                 }
                 finally
                 {
@@ -206,7 +181,7 @@ class Program
 
         await Task.WhenAll(tasks);
 
-        WriteColored("\nПароль найден! Резульат добавлен в log.txt", ConsoleColor.Cyan);
+        WriteColored("\nПароль найден! Результат добавлен в log.txt", ConsoleColor.Cyan);
         Wait();
     }
 
