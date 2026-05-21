@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\wwrwsx\\Documents\\project-prikol-async\\project-prikol-async\\main\\main.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\wwrwsx\\Documents\\project-prikol-async\\project-prikol-async\\main\\main.csproj",
         "packagesPath": "C:\\Users\\wwrwsx\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\wwrwsx\\Documents\\project-prikol-async\\project-prikol-async\\main\\obj\\",
+=======
+    "C:\\Users\\wwrwsx\\Documents\\sshbrute\\main\\main.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\wwrwsx\\Documents\\sshbrute\\main\\main.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\wwrwsx\\Documents\\sshbrute\\main\\main.csproj",
+        "projectName": "main",
+        "projectPath": "C:\\Users\\wwrwsx\\Documents\\sshbrute\\main\\main.csproj",
+        "packagesPath": "C:\\Users\\wwrwsx\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wwrwsx\\Documents\\sshbrute\\main\\obj\\",
+>>>>>>> 1b342f592a778c32df550255483b83c3f1c2746b
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -19,6 +19,7 @@ C:\Users\wwrwsx\Documents\sshbrute\main\bin\Debug\net10.0\Microsoft.Extensions.L
 C:\Users\wwrwsx\Documents\sshbrute\main\bin\Debug\net10.0\Renci.SshNet.dll
 C:\Users\wwrwsx\Documents\sshbrute\main\obj\Debug\net10.0\main.csproj.Up2Date
 C:\Users\wwrwsx\Documents\sshbrute\main\obj\Debug\net10.0\main.sourcelink.json
+<<<<<<< HEAD
 C:\Users\wwrwsx\Documents\project-prikol-async\project-prikol-async\main\obj\Debug\net10.0\main.csproj.AssemblyReference.cache
 C:\Users\wwrwsx\Documents\project-prikol-async\project-prikol-async\main\obj\Debug\net10.0\main.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\wwrwsx\Documents\project-prikol-async\project-prikol-async\main\obj\Debug\net10.0\main.AssemblyInfoInputs.cache
@@ -39,3 +40,5 @@ C:\Users\wwrwsx\Documents\project-prikol-async\project-prikol-async\main\bin\Deb
 C:\Users\wwrwsx\Documents\project-prikol-async\project-prikol-async\main\obj\Debug\net10.0\main.csproj.Up2Date
 C:\Users\wwrwsx\Documents\project-prikol-async\project-prikol-async\main\obj\Debug\net10.0\main.genruntimeconfig.cache
 C:\Users\wwrwsx\Documents\project-prikol-async\project-prikol-async\main\obj\Debug\net10.0\ref\main.dll
+=======
+>>>>>>> 1b342f592a778c32df550255483b83c3f1c2746b
