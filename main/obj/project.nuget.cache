@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "e0br+qj09TM=",
   "success": true,
   "projectFilePath": "C:\\Users\\wwrwsx\\Documents\\project-prikol-async\\project-prikol-async\\main\\main.csproj",
-=======
-  "dgSpecHash": "fajK+1xTpoQ=",
-  "success": true,
-  "projectFilePath": "C:\\Users\\wwrwsx\\Documents\\sshbrute\\main\\main.csproj",
->>>>>>> 1b342f592a778c32df550255483b83c3f1c2746b
   "expectedPackageFiles": [
     "C:\\Users\\wwrwsx\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\wwrwsx\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
