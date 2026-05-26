@@ -177,7 +177,8 @@ class Program
 
                                 lock (consoleLock)
                                 {
-                                    Console.SetCursorPosition(0, progressLine + 2);
+                                    int skip = ifusername ? 10 : 8;                                    
+                                    Console.SetCursorPosition(0, progressLine + skip);
 
                                     WriteColored("\n=== УСПЕХ ===", ConsoleColor.Green);
                                     Console.WriteLine($"IP: {host}");
