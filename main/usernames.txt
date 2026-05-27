@@ -1,4 +1,5 @@
 root
+ubuntu
 demo
 admin
 test

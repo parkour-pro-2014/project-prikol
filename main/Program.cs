@@ -12,7 +12,7 @@ using System.Runtime.InteropServices.Marshalling;
 
 class Program
 {
-    static string filePath = "rockyou10000.txt";
+    static string filePath = "rockyou100.txt";
     static int maxThreads = 15;
 
     static string userfilePath = "usernames.txt";
@@ -20,6 +20,7 @@ class Program
     static bool ifusername = false;
 
     static object consoleLock = new object();
+    static readonly object fileLock = new object();
 
     static volatile bool stopAll = false;
 
@@ -198,7 +199,11 @@ class Program
                     }
                     catch (Exception ex)
                     {
-                        File.AppendAllText("debug.txt", $"Ошибка: {ex.Message}\n");
+                        lock (fileLock)
+                        {
+                            File.AppendAllText("debug.txt",
+                                        $"Ошибка: {ex.Message} при подключении: {host} {username} {password}\n");
+                        }
                     }
                     finally
                     {
@@ -220,7 +225,7 @@ class Program
             }
 
         }
-        Console.WriteLine("Ошибки добавлены в debug.txt");
+        WriteColored("\nОшибки добавлены в debug.txt\n", ConsoleColor.DarkRed);
         await Task.WhenAll(tasks);
         Wait();
     }
@@ -320,7 +325,7 @@ class Program
 
     static void Wait()
     {
-        Console.WriteLine("\nНажмите любую клавишу...");
+        Console.WriteLine("\n\n\n\n\n\n\n\n\nНажмите любую клавишу...");
         Console.ReadKey();
     }
 

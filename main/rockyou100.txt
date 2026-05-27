@@ -1,5 +1,4 @@
 123456
-12345
 123456789
 iloveyou
 princess
@@ -91,7 +90,8 @@ spongebob
 joseph
 junior
 softball
-password123123
+password
+12345
 yellow
 daniela
 lauren
