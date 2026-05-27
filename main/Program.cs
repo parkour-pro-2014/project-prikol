@@ -182,8 +182,12 @@ class Program
 
                                     WriteColored("\n=== УСПЕХ ===", ConsoleColor.Green);
                                     Console.WriteLine($"IP: {host}");
-                                    Console.WriteLine($"User: {username}");
+                                    Console.WriteLine($"User: {localUsername}");
                                     Console.WriteLine($"Password: {password}");
+                                    if (client.IsConnected)
+                                        {Console.WriteLine("Клиент не отключен");}
+                                    else 
+                                        {Console.WriteLine("Клиент отключен");}
 
                                     File.AppendAllText("log.txt",
                                         $"SUCCESS {host} {username} {password}\n");
