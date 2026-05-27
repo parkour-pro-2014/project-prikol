@@ -191,13 +191,14 @@ class Program
 
                                     File.AppendAllText("log.txt",
                                         $"SUCCESS {host} {username} {password}\n");
+                                    WriteColored("\nПароль найден! Результат добавлен в log.txt", ConsoleColor.Cyan);
                                 }
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine("Ошибка: " + ex.Message);
+                        File.AppendAllText("debug.txt", $"Ошибка: {ex.Message}\n");
                     }
                     finally
                     {
@@ -219,10 +220,8 @@ class Program
             }
 
         }
-
+        Console.WriteLine("Ошибки добавлены в debug.txt");
         await Task.WhenAll(tasks);
-
-        WriteColored("\nПароль найден! Результат добавлен в log.txt", ConsoleColor.Cyan);
         Wait();
     }
 
