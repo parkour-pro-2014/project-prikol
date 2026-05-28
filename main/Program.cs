@@ -20,7 +20,6 @@ class Program
     static bool ifusername = false;
 
     static object consoleLock = new object();
-    static readonly object fileLock = new object();
 
     static volatile bool stopAll = false;
 
@@ -133,6 +132,7 @@ class Program
         int checkedCount = 0;
 
         var semaphore = new SemaphoreSlim(maxThreads);
+
         int found = 0;
 
         int progressLine = Console.CursorTop;
@@ -144,6 +144,7 @@ class Program
         int totalCombinations = ifusername ? dictionary.Count * outerItems.Count : dictionary.Count;
 
         int userIndex = 0;
+
         foreach (var user in outerItems)
         {
             userIndex++;
@@ -199,11 +200,7 @@ class Program
                     }
                     catch (Exception ex)
                     {
-                        lock (fileLock)
-                        {
-                            File.AppendAllText("debug.txt",
-                                        $"Ошибка: {ex.Message} при подключении: {host} {username} {password}\n");
-                        }
+                    //    Console.WriteLine($"Ошибка: {ex.Message}");
                     }
                     finally
                     {
@@ -225,7 +222,6 @@ class Program
             }
 
         }
-        WriteColored("\nОшибки добавлены в debug.txt\n", ConsoleColor.DarkRed);
         await Task.WhenAll(tasks);
         Wait();
     }
@@ -325,7 +321,8 @@ class Program
 
     static void Wait()
     {
-        Console.WriteLine("\n\n\n\n\n\n\n\n\nНажмите любую клавишу...");
+        Console.SetCursorPosition(0, Console.CursorTop + 9);
+        Console.WriteLine("Нажмите любую клавишу...");
         Console.ReadKey();
     }
 
